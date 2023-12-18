@@ -26,5 +26,9 @@ public class Personaje : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         animator.SetBool("estaEnSuelo", false);
+        if (collision.transform.tag == "Enemigo")
+        {
+            GameManager.Instancia.Perder();
+        }
     }
 }
