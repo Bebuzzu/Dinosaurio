@@ -23,6 +23,7 @@ public class Enemigo : MonoBehaviour
         if (transform.position.x < posicionMinima.x - 5)
         {
             transform.position = posicionInicial;
+            velocidad += 1;
         }
     }
 }
