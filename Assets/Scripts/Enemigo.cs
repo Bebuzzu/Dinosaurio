@@ -6,21 +6,23 @@ public class Enemigo : MonoBehaviour
 {
     [SerializeField] Camera camara;
     [SerializeField] Vector2 posicionMinima, posicionInicial;
-    [SerializeField] float velocidad;
+    [SerializeField] float velocidad = 8;
     // Start is called before the first frame update
     void Start()
     {
         camara = Camera.main;
         posicionMinima = camara.ViewportToWorldPoint(new Vector2(0, 0));
+        posicionInicial = transform.position;
+        transform.position = posicionInicial;
     }
 
     // Update is called once per frame
     void Update()
     {
         transform.Translate(Vector2.left * velocidad * Time.deltaTime);
-        if (transform.position.x < posicionMinima.x)
+        if (transform.position.x < posicionMinima.x - 5)
         {
-            Destroy(gameObject, 0.5f);
+            transform.position = posicionInicial;
         }
     }
 }
