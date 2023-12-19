@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject jugador, enemigo;
     [SerializeField] bool cronometro;
     [SerializeField] TMP_Text texto;
+    [SerializeField] Enemigo InicicarEnemigo;
     public static GameManager Instancia;
 
 
@@ -29,7 +30,7 @@ public class GameManager : MonoBehaviour
     {
         if (cronometro == true)
         {
-            tiempo -= Time.deltaTime;
+            tiempo += Time.deltaTime;
             int minutos = (int)tiempo / 60;
             int segundos = (int)tiempo % 60;
             Debug.Log(minutos + ":" + segundos);
@@ -47,7 +48,14 @@ public class GameManager : MonoBehaviour
     }
     public void ReiniciarJuego()
     {
-
+        puntuacionActual = 0;
+        jugador.SetActive(true);
+        enemigo.SetActive(true);
+        gameOver.SetActive(false);
+        boton.SetActive(false);
+        tiempo = 0;
+        cronometro = true;
+        InicicarEnemigo.ReiniciarEnemigo();
     }
     public void ActualizarPuntuación()
     {

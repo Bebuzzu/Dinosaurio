@@ -6,6 +6,7 @@ using UnityEngine;
 public class Texto : MonoBehaviour
 {
     [SerializeField] TMP_Text puntuacionActual, mejorPuntuacion;
+    [SerializeField] TMP_Text tiempo;
     // Start is called before the first frame update
     void Start()
     {

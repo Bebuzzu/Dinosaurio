@@ -26,7 +26,7 @@ public class Enemigo : MonoBehaviour
             velocidad += 1;
         }
     }
-    void ReiniciarEnemigo()
+    public void ReiniciarEnemigo()
     {
         transform.position = posicionInicial;
         velocidad = 8;
